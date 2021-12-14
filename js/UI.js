@@ -93,4 +93,30 @@ class UI {
                 `;
         })
     }
+            
+     // Prints the Ingredients and Measurements
+     displayIngredients(drink) {
+        // console.log(drink)
+
+        let ingredients = [];
+        for(let i = 1; i < 16; i++) {
+            const ingredientsMeasure = {};
+            if(drink[`strIngredient${i}`] !== null){
+                ingredientsMeasure.ingredient = drink[`strIngredient${i}`];
+                ingredientsMeasure.measure = drink[`strMeasure${i}`];
+                ingredients.push(ingredientsMeasure);
+            }
+        }
+        // console.log(ingredients);
+        // Build the templte
+
+        let ingredientsTemplate = '';
+        ingredients.forEach(ingredient => {
+            ingredientsTemplate += `
+            <li class="list-group-item">${ingredient.ingredient} - ${ingredient.measure}</li>
+            `;
+        });
+
+        return ingredientsTemplate;
+    }
 }
