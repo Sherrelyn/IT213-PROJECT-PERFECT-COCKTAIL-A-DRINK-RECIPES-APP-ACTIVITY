@@ -101,3 +101,14 @@ function resultsDelegation(e) {
         }
     }
 }
+
+
+// Document Ready
+function documentReady() {
+
+    // Select the search category select
+    const searchCategory = document.querySelector('.search-category');
+    if(searchCategory) {
+        ui.displayCategories();
+    }
+}
