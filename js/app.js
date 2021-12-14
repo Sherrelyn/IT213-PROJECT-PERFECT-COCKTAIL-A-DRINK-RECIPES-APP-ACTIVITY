@@ -76,3 +76,28 @@ function getCocktails(e){
         })
     }
 }
+// Delegation for the results area
+function resultsDelegation(e) {
+    e.preventDefault();
+
+    if(e.target.classList.contains('get-recipe')) {
+        cocktail.getSingleRecipe(e.target.dataset.id)
+            .then(recipe => {
+                // Displays single recipe into a modal
+                ui.displaySingleRecipe(recipe.recipe.drinks[0]);
+            })
+    }
+    
+    // When favorite btin is clicked
+    if(e.target.classList.contains('favorite-btn')) {
+        if(e.target.classList.contains('is-favorite')) {
+            // Remove the class
+            e.target.classList.remove('is-favorite');
+            e.target.textContent = '+';
+        }else {
+            // Add the class
+            e.target.classList.add('is-favorite');
+            e.target.textContent = '-';
+        }
+    }
+}
